@@ -5,8 +5,6 @@ import _pickle as pickle
 class Network:
     """
     class to connect, send and recieve information from the server
-
-    need to hardcode the host attirbute to be the server's ip
     """
     def __init__(self):
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
