@@ -8,26 +8,22 @@ from constant import *
 
 
 def main(name):
-	"""
-	function for running the game,
-	includes the main loop of the game
-
-	:param name: the my_player name
-	"""
 	# start by connecting to the network
 	server = Network()
 	my_id = server.connect(name)
 	balls, players, game_time = server.send("get")
 
-	# setup the clock, limit to 30fps
+	# setup the clock
 	clock = pygame.time.Clock()
 
 	run = True
 	while run:
-		clock.tick(30) # 30 fps max
+		clock.tick(30) # sync to 30fps
 		my_player = players[my_id]
+
 		# get mouse position
 		mouse_pos = pygame.mouse.get_pos()
+		
 		#movement based on mouse position
 		dx = mouse_pos[0] - W/2
 		dy = mouse_pos[1] - H/2

@@ -11,10 +11,6 @@ def get_name():
 
 # Convert time from seconds to string of minutes and seconds 
 def convert_time(t):
-	"""
-	:param t: int
-	:return: string
-	"""
 	if int(t) < 60:
 		return str(t) + "s"
 	else:
@@ -37,9 +33,10 @@ def redraw_window(my_player, players, balls, game_time,
 				  WIN, PLAYER_RADIUS, BALL_RADIUS, 
 				  NAME_FONT, TIME_FONT, SCORE_FONT, W, H, map_width, map_height):
 	
-	WIN.fill((255,255,255)) # fill screen white, to clear old frames
+	WIN.fill((255,255,255)) # fill screen white
+
 	# draw limit
-	pygame.draw.rect(WIN, (251, 244, 226), get_rel_pos(my_player, W, H, 0, 0)+(map_width, map_height), 1000)  # Border
+	pygame.draw.rect(WIN, (251, 244, 226), get_rel_pos(my_player, W, H, 0, 0)+(map_width, map_height), 1000)
 
     # draw all the orbs/balls
 	for ball in balls:
@@ -67,6 +64,7 @@ def redraw_window(my_player, players, balls, game_time,
 	# draw time
 	text = TIME_FONT.render("Time: " + convert_time(game_time), 1, (0,0,0))
 	WIN.blit(text,(10,10))
+	
 	# draw score
 	text = TIME_FONT.render("Score: " + str(round(my_player["score"])),1,(0,0,0))
 	WIN.blit(text,(10,15 + text.get_height()))
