@@ -35,11 +35,11 @@ def get_rel_pos(my_player, W, H, x, y):
 # Drawing each frame of the game
 def redraw_window(my_player, players, balls, game_time, 
 				  WIN, PLAYER_RADIUS, BALL_RADIUS, 
-				  NAME_FONT, TIME_FONT, SCORE_FONT, W, H):
+				  NAME_FONT, TIME_FONT, SCORE_FONT, W, H, map_width, map_height):
 	
 	WIN.fill((255,255,255)) # fill screen white, to clear old frames
 	# draw limit
-	pygame.draw.rect(WIN, (251, 244, 226), get_rel_pos(my_player, W, H, 0, 0)+(1600*2, 1600*2), 1000)  # Border
+	pygame.draw.rect(WIN, (251, 244, 226), get_rel_pos(my_player, W, H, 0, 0)+(map_width, map_height), 1000)  # Border
 
     # draw all the orbs/balls
 	for ball in balls:

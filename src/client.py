@@ -13,6 +13,7 @@ class Network:
         #self.client.settimeout(10.0)
         self.host = "172.233.247.228"
         # self.host = "10.192.64.50"
+        self.host = "127.0.1.1"
         self.port = 5555
         self.addr = (self.host, self.port)
 

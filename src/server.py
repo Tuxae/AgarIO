@@ -26,23 +26,25 @@ ROUND_TIME = 60 * 5
 
 MASS_LOSS_TIME = 7
 
-W, H = 1600*2, 1600*2
-
+# W, H = 1600, 1600
+map_width, map_height = 1_600, 1_6000
 
 # try to connect to server
+
+
+HOST_NAME = socket.gethostname()
+SERVER_IP = socket.gethostbyname(HOST_NAME)
+S.bind((SERVER_IP, PORT))
+print(f"[SERVER] Server Started with local ip {SERVER_IP}")
+
+"""
 try:
-	"""
-	HOST_NAME = socket.gethostname()
-	SERVER_IP = socket.gethostbyname(HOST_NAME)
-    S.bind((SERVER_IP, PORT))
-	print(f"[SERVER] Server Started with local ip {SERVER_IP}")
-	"""
 	S.bind(('', 5555))
 except socket.error as e:
     print(str(e))
     print("[SERVER] Server could not start")
     quit()
-
+"""
 S.listen()  # listen for connections
 
 # dynamic variables
@@ -130,8 +132,8 @@ def create_balls(balls, n):
 	for i in range(n):
 		while True:
 			stop = True
-			x = random.randrange(0,W)
-			y = random.randrange(0,H)
+			x = random.randrange(0,map_width)
+			y = random.randrange(0,map_height)
 			for player in players:
 				p = players[player]
 				dis = math.sqrt((x - p["x"])**2 + (y-p["y"])**2)
@@ -153,8 +155,8 @@ def get_start_location(players):
 	"""
 	while True:
 		stop = True
-		x = random.randrange(0,W)
-		y = random.randrange(0,H)
+		x = random.randrange(0,map_width)
+		y = random.randrange(0,map_height)
 		for player in players:
 			p = players[player]
 			dis = math.sqrt((x - p["x"])**2 + (y-p["y"])**2)
@@ -241,8 +243,8 @@ def threaded_client(conn, _id):
 				vel = START_VEL - players[current_id]["score"]/30
 				if vel <= 3:
 					vel = 3
-				players[current_id]["x"] = inside_map(players[current_id]["x"] + int(vel*dx / norme), W)
-				players[current_id]["y"] = inside_map(players[current_id]["y"] + int(vel*dy / norme), H)
+				players[current_id]["x"] = inside_map(players[current_id]["x"] + int(vel*dx / norme), map_width)
+				players[current_id]["y"] = inside_map(players[current_id]["y"] + int(vel*dy / norme), map_height)
 
 				# only check for collison if the game has started
 				if start:
@@ -285,7 +287,7 @@ def threaded_client(conn, _id):
 # MAINLOOP
 
 # setup level with balls
-create_balls(balls, random.randrange(200,250))
+create_balls(balls, random.randrange(50,100))
 
 print("[GAME] Setting up level")
 print("[SERVER] Waiting for connections")

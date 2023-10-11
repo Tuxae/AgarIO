@@ -53,8 +53,10 @@ def main(name):
 
 		# redraw window then update the frame
 		redraw_window(my_player, players, balls, game_time, 
-				  WIN, PLAYER_RADIUS, BALL_RADIUS, 
-				  NAME_FONT, TIME_FONT, SCORE_FONT, W, H)
+				WIN, PLAYER_RADIUS, BALL_RADIUS, 
+				NAME_FONT, TIME_FONT, SCORE_FONT, W, H, 
+				map_width, map_height
+		)
 		pygame.display.update()
 
 
@@ -69,7 +71,7 @@ name = get_name()
 os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (0,30)
 
 # setup pygame window
-WIN = pygame.display.set_mode((W,H), pygame.FULLSCREEN)
+WIN = pygame.display.set_mode((W,H))
 pygame.display.set_caption("Blobs")
 
 # start game
