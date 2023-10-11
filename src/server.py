@@ -10,6 +10,7 @@ import _pickle as pickle
 import time
 import random
 import math
+from constant import map_width, map_height
 
 # setup sockets
 S = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -27,7 +28,7 @@ ROUND_TIME = 60 * 5
 MASS_LOSS_TIME = 7
 
 # W, H = 1600, 1600
-map_width, map_height = 400, 400
+# map_width, map_height = 400, 400
 
 # try to connect to server
 

@@ -5,7 +5,7 @@ PLAYER_RADIUS = 10
 BALL_RADIUS = 5
 
 W, H = 1600, 830
-map_width, map_height = 400, 400
+map_width, map_height = 1600*2, 1600*2
 
 pygame.font.init()
 
