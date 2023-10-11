@@ -27,7 +27,7 @@ ROUND_TIME = 60 * 5
 MASS_LOSS_TIME = 7
 
 # W, H = 1600, 1600
-map_width, map_height = 1_600, 1_6000
+map_width, map_height = 400, 400
 
 # try to connect to server
 
