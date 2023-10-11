@@ -32,6 +32,7 @@ map_width, map_height = 1_600, 1_6000
 # try to connect to server
 
 
+"""
 HOST_NAME = socket.gethostname()
 SERVER_IP = socket.gethostbyname(HOST_NAME)
 S.bind((SERVER_IP, PORT))
@@ -44,7 +45,6 @@ except socket.error as e:
     print(str(e))
     print("[SERVER] Server could not start")
     quit()
-"""
 S.listen()  # listen for connections
 
 # dynamic variables
