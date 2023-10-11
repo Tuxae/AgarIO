@@ -11,7 +11,14 @@ def main(name):
 	# start by connecting to the network
 	server = Network()
 	my_id = server.connect(name)
-	balls, players, game_time = server.send("get")
+
+	ok= False
+	while not ok:
+		try:
+			balls, players, game_time = server.send("get")
+			ok=True
+		except:
+			pass
 
 	# setup the clock
 	clock = pygame.time.Clock()
