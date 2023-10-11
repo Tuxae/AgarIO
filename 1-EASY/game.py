@@ -19,21 +19,21 @@ def main(name):
 	run = True
 	while run:
 		clock.tick(30) # sync to 30fps
-		my_player = players[my_id]
+		my_player = a_completer
 
-		# get mouse position
-		mouse_pos = pygame.mouse.get_pos()
+		# get MOUSE position
+		mouse_pos = pygame.a_completer.get_pos()
 		
 		#movement based on mouse position
 		dx = mouse_pos[0] - W/2
-		dy = mouse_pos[1] - H/2
-		data = f"move " + str(dx) + " " + str(dy)
+		dy = mouse_pos[1] - a_completer
+		data = f"move " + str(dx) + " " + str(a_completer)
 		
-		# send data to server and recieve back all players information
-		returning_values = server.send(data)
+		# SEND data to server and recieve back all players information
+		returning_values = server.a_completer(data)
 		try:
 			if returning_values is not None:
-				balls, players, game_time = returning_values
+				balls, players, game_time = a_completer
 		except:
 			print(returning_values)
 
@@ -48,11 +48,7 @@ def main(name):
 
 
 		# redraw window then update the frame
-		redraw_window(my_player, players, balls, game_time, 
-				WIN, PLAYER_RADIUS, BALL_RADIUS, 
-				NAME_FONT, TIME_FONT, SCORE_FONT, W, H, 
-				map_width, map_height
-		)
+		redraw_window(a_completer)
 		pygame.display.update()
 
 
