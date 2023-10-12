@@ -71,7 +71,7 @@ def main(name):
 name = get_name()
 
 # setup pygame window
-WIN = pygame.display.set_mode((W,H))
+WIN = pygame.display.set_mode((W,H), pygame.FULLSCREEN)
 pygame.display.set_caption("TUXAE")
 
 # start game
