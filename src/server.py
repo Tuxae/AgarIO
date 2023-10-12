@@ -216,7 +216,7 @@ def threaded_client(conn, _id):
 		if start:
 			game_time = round(time.time()-start_time)
 			# if the game time passes the round time the game will stop
-			if game_time >= ROUND_TIME:
+			if game_time >= ROUND_TIME and False:
 				start = False
 			else:
 				if game_time // MASS_LOSS_TIME == nxt:
